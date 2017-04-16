@@ -1,0 +1,142 @@
+$fa-font-path: "../fonts/font-awesome" !default;
+$icon-font-path: "../fonts/bootstrap";
+$OpenSansPath: "../fonts/opensans";
+$font-family-sans-serif: "Open Sans";
+$font-size-base: 18px;
+$base-font-size: $font-size-base;
+$base-line-height: (1.5*$base-font-size);
+$border-radius-base: 0;
+$brand-primary: #63bc46;
+
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/open-sans-fontface/sass/variables";
+@import "../../node_modules/open-sans-fontface/sass/mixins";
+@import "../../node_modules/open-sans-fontface/sass/Regular";
+@import "../../node_modules/open-sans-fontface/sass/Italic";
+@import "../../node_modules/open-sans-fontface/sass/Semibold";
+@import "../../node_modules/open-sans-fontface/sass/SemiboldItalic";
+@import "../../node_modules/open-sans-fontface/sass/Bold";
+@import "../../node_modules/open-sans-fontface/sass/BoldItalic";
+@import "../../node_modules/compass-mixins/lib/compass/typography";
+
+feed {
+	background-color:#f0f0f0;
+	&::before {
+		height:50px;
+		line-height:50px;
+		margin-bottom:25px;
+		color: #9F6000;
+		background-color: #FEEFB3;
+		text-align:center;
+		content: "You are viewing an RSS feed. You might want to use an RSS reader instead.";
+		position:fixed;
+		top:0;
+		left:0;
+		right:0;
+		box-shadow:       0 0 10px 0 rgba(0, 0, 0, 0.1);
+		z-index:1;
+	}
+}
+
+feed, entry, content, p, h1, h2, h3, ul, li {
+	display:block;
+}
+
+feed > title, feed > icon, feed > link, feed > id, feed > updated {
+	display:none;
+}
+
+feed {
+	font-family: "Open Sans", sans-serif;
+
+	position:relative;
+	padding-top:60px;
+	padding-bottom:30px;
+}
+
+entry {
+	@extend .container;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+	padding:40px;
+	margin-top:40px;
+	margin-bottom:40px;
+	background:#fff;
+
+	font-size: $font-size-base;
+	@include establish-baseline($font-size-base);
+
+	author::before {
+		content:" by ";
+		display:inline;
+	}
+	author {
+		@extend p;
+		text-align:center !important;
+	}
+	author uri {
+		display:none;
+	}
+
+	title {
+		@extend h1;
+		text-align:center;
+	}
+
+	link, id, published, updated, summary, category {
+		display:none;
+	}
+
+	h1 {
+		@include adjust-font-size-to(45px);
+		margin-top:0;
+	}
+
+	h2 {
+		@include adjust-font-size-to(30px);
+	}
+
+	h3 {
+		@include adjust-font-size-to(24px);
+	}
+
+	h4 {
+		@include adjust-font-size-to(20px);
+	}
+
+	p, ul li {
+		@include rhythm(0, 0, 0, 1);
+		text-align: justify;
+	}
+
+	sup, sub {
+		vertical-align: baseline;
+		position:       relative;
+	}
+	sup {
+		top: -0.4em;
+	}
+	sub {
+		top: 0.4em;
+	}
+
+	pre {
+		@include rhythm(0, 0, 0, 1);
+		margin:     0;
+		padding:    0;
+		border:     0;
+		font-size:  inherit;
+		word-break: normal;
+		word-wrap:  normal;
+		@include adjust-font-size-to(16px);
+	}
+	pre code {
+		display:      block;
+		@include rhythm(0, 0, 0, 0);
+		@include rhythm-borders();
+		border-color: #cccccc;
+		word-break:   normal;
+		word-wrap:    normal;
+		overflow-y:   auto;
+	}
+}

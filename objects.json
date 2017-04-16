@@ -1,0 +1,81 @@
+{
+	article: {
+		fields: {
+			title: {
+				type: "STRING",
+				optional: false
+			},
+			author: {
+				type: "OBJECTREF",
+				object: "author",
+				optional: false
+			},
+			published: {
+				type: "DATETIME",
+				optional: true
+			},
+			categories: {
+				type: "LIST",
+				subtype: "OBJECTREF",
+				object: "category",
+				optional: true
+			},
+			series: {
+				type: "OBJECTREF",
+				object: "series",
+				optional: true
+			},
+			excerpt: {
+				type: "STRING"
+			},
+			social: {
+				type: "ASSETREF"
+			},
+			decor: {
+				type: "ASSETREF"
+			}
+		},
+		linkPattern: "/{slug}",
+		assetPattern: "/{slug}/{version}/{asset}",
+		displayName: "{title}"
+	},
+	author: {
+		fields: {
+			Name: {
+				type: "STRING",
+				optional: false
+			},
+			URL: {
+				type: "URL",
+				optional: true
+			},
+			"First name": {
+				type: "STRING"
+			},
+			"Last name": {
+				type: "STRING"
+			},
+			Gender: {
+				type: "STRING"
+			}
+			Facebook: {
+				type: "URL",
+				optional: true
+			},
+			Twitter: {
+				type: "URL",
+				optional: true
+			},
+			GooglePlus: {
+				type: "URL",
+				optional: true
+			},
+			Image: {
+				type: "ASSETREF"
+			}
+		},
+		linkPattern: "/author/{slug}",
+		assetPattern: "/author/{slug}/{version}/{asset}",
+		displayName: "{name}"
+	}
+}

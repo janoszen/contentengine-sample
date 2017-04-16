@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /newsletter/confirm
+Disallow: /newsletter/thankyou
+Disallow: /newsletter/unsubscribe
+Allow: /
+Sitemap: https://refactor.zone/sitemap.xml

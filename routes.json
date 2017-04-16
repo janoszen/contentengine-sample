@@ -1,0 +1,11 @@
+[
+	{
+		path="/", template="index.twig",
+	},
+	{
+		path="/robots.txt", asset="robots.txt"
+	},
+	{
+		path="/google([a-z0-9]+)\\.html", asset="google$1.html"
+	}
+]
